@@ -31,7 +31,21 @@ layout: default
   </div>
 
   {%- if site.disqus.shortname -%}
+    <!-- the disques comment widget -->
     {%- include disqus_comments.html -%}
+  {%- endif -%}
+
+  {%- if site.utterances.repo and page.comments != false -%}
+    <!-- the utterances comment widget -->
+    <script
+      src="https://utteranc.es/client.js"
+      repo="{{ site.utterances.repo }}"
+	  issue-term="{{ site.utterances.issue-term }}"
+	  label="{{ site.utterances.issue-label }}"
+	  theme="{{ site.utterances.theme }}"
+      crossorigin="anonymous"
+      async>
+    </script>
   {%- endif -%}
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>

@@ -231,6 +231,19 @@ If you don't want to display comments for a particular post you can disable them
 
 :warning: `url`, e.g. `https://example.com`, must be set in you config file for Disqus to work.
 
+### Enabling commments (via utterances)
+Optionally, you can use the comments widget provided by [utterances](https://utteranc.es).
+
+``yaml
+  utterances:
+    repo: github_username/github_username.github.io
+    issue-term: pathname
+    issue-label: comments
+    theme: github-light
+```
+
+If you don't want to display comments for a particular post you can disable them by adding `comments: false` to that post's YAML Front Matter.
+
 ### Author Metadata
 
 From `Minima-3.0` onwards, `site.author` is expected to be a mapping of attributes instead of a simple scalar value:

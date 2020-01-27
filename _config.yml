@@ -55,6 +55,14 @@ minima:
 # Build settings
 theme: minima
 
+# The comments widget provided by https://utteranc.es
+# the github repo used by utterances to create issues for comment thread
+#utterances:
+#  repo: github_username/github_username.github.io
+#  issue-term: pathname
+#  issue-label: comments
+#  theme: github-light
+
 plugins:
  - jekyll-feed
  - jekyll-seo-tag
