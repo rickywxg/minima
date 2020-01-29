@@ -10,6 +10,7 @@ layout: default
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
         {{ page.date | date: date_format }}
       </time>
+
       {%- if page.modified_date -%}
         ~ 
         {%- assign mdate = page.modified_date | date_to_xmlschema -%}
@@ -17,13 +18,23 @@ layout: default
           {{ mdate | date: date_format }}
         </time>
       {%- endif -%}
+
       {%- if page.author -%}
-        • {% for author in page.author %}
+        •{%- for author in page.author -%}
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
             <span class="p-author h-card" itemprop="name">{{ author }}</span></span>
             {%- if forloop.last == false %}, {% endif -%}
-        {% endfor %}
-      {%- endif -%}</p>
+        {%- endfor -%}
+      {%- endif -%}
+
+      {%- if page.tags.size > 0 -%}
+         <span>
+          {%- for tag in page.tags -%}
+            <a href="{{ "/" | relative_url }}tags.html#{{ tag | slugify }}" class="post-tag">{{ tag }}</a>
+          {%- endfor -%}
+          </span>
+      {%- endif -%}
+    </p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
@@ -40,9 +51,9 @@ layout: default
     <script
       src="https://utteranc.es/client.js"
       repo="{{ site.utterances.repo }}"
-	  issue-term="{{ site.utterances.issue-term }}"
-	  label="{{ site.utterances.issue-label }}"
-	  theme="{{ site.utterances.theme }}"
+      issue-term="{{ site.utterances.issue-term }}"
+      label="{{ site.utterances.issue-label }}"
+      theme="{{ site.utterances.theme }}"
       crossorigin="anonymous"
       async>
     </script>

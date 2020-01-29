@@ -227,6 +227,40 @@
   color: $brand-color;
 }
 
+.post-tag {
+  display: inline-block;
+  background: rgba($brand-color, 0.2);
+  padding: 0 .5rem;
+  margin-right: .5rem;
+  border-radius: 4px;
+  &:before {
+    content: "#";
+    padding-right: .5em;
+  }
+  &:hover {
+    text-decoration: none;
+    background: $brand-color;
+    color: white;
+  }
+}
+
+.big-post-tag {
+  @include relative-font-size(1.25);
+  border: 1px solid;
+  padding: 0 .5rem;
+  margin-right: .5rem;
+  border-radius: 6px;
+}
+
+.all-tag-list-container {
+  padding: 1rem;
+  text-align: center;
+}
+
+.all-tag-list-section {
+  padding-top: 1rem;
+}
+
 .post-link {
   display: block;
   @include relative-font-size(1.5);
